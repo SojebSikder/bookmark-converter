@@ -4,6 +4,10 @@ Bookmark converter converts HTML bookmarks (Netscape format) to Markdown.
 
 It's painfull to import browser bookmarks to notion. This tool converts your bookmarks to Markdown so you can easily import them into notion.
 
+## Installation
+Download the latest release from the [releases page](https://github.com//bookmark-converter/releases).
+
+
 ## Usage
 
 ```bash
