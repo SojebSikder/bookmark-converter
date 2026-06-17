@@ -5,7 +5,8 @@ before:
     - go mod tidy
 
 builds:
-  - env:
+  - main: ./cmd/main.go
+    env:
       - CGO_ENABLED=0
     mod_timestamp: "{{ .CommitTimestamp }}"
     flags:
@@ -19,10 +20,16 @@ builds:
     goarch:
       - amd64
       - arm64
-    binary: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    binary: "bc" # This will name the executable inside the zip file "bc" (or "bc.exe")
+
+archives:
+  - name_template: "bc_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip # Windows users prefer .zip over .tar.gz
 
 checksum:
-  name_template: "{{ .ProjectName }}_SHA256SUMS"
+  name_template: "bc_{{ .Version }}_SHA256SUMS"
   algorithm: sha256
 
 changelog:
