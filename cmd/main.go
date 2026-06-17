@@ -7,10 +7,20 @@ import (
 	"github.com/sojebsikder/bookmark-converter/bookmarks"
 )
 
+const version = "v0.1.0"
+
 func main() {
+	if len(os.Args) > 1 {
+		if os.Args[1] == "version" {
+			fmt.Printf("bookmark-converter version %s\n", version)
+			os.Exit(0)
+		}
+	}
+
 	if len(os.Args) != 3 {
 		fmt.Println("Usage:")
-		fmt.Println("  bc bookmarks.html bookmarks.md")
+		fmt.Println("  bc <input.html> <output.md>  Convert bookmarks")
+		fmt.Println("  bc version                   Show version information")
 		os.Exit(1)
 	}
 
