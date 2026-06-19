@@ -21,3 +21,6 @@ go get github.com/sojebsikder/bookmark-converter
 ```
 
 Check code usage in `cmd/main.go`
+
+## TODO
+- [ ] Convert Markdown to HTML bookmarks (Netscape format)
